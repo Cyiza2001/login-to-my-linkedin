@@ -4,23 +4,31 @@ const inputPassword= document.querySelector('#password');
 const loginButton= document.querySelector('#button1');
 const signupButton= document.querySelector('#button2');
 const container = document.querySelector('.container');
+const popup= document.querySelector('.popup');
 
 // store user  credentials
 let userCredentials= {};
+let gmail;
+//hide the popup of unvalid credenrials
+popup.style.opacity=0;
 
 //a function to store the credentials
 const credentialsFunction= function(email,password){
+    if(email.length>=11 && gmail==="@gmail.com" && password.length>=8){
     userCredentials[email]=password;
-    console.log(userCredentials);
+
+}
+   
 }
 // a function to check a valid email
 const validEmail= function(email){
-const gmail = email.slice(-10);
+ gmail = email.slice(-10);
 if(email.length>=11 && gmail==="@gmail.com"){
     return email;
 }
 else{
-    alert('please provide a valid email');
+    popup.style.opacity=1;
+    popup.innerHTML="Invalid Email or password";
 }
 }
 // a function to check a valid password
@@ -29,7 +37,9 @@ const ValidPassword = function(password){
        return password;
     }
     else{
-        alert('Please enter a valid password');
+        popup.style.opacity=1;
+
+        popup.innerHTML="Invalid Email or password";
        
     }
     }
@@ -42,6 +52,7 @@ signupButton.addEventListener('click', function(e){
 let userPassword=inputPassword.value;
 validEmail(userEmail);
 ValidPassword(userPassword);
+
 credentialsFunction(userEmail,userPassword);
 // userEmail=userPassword="";
 })
@@ -59,5 +70,4 @@ loginButton.addEventListener('click', function(){
         }
     }
 })
-
 

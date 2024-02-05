@@ -6,7 +6,7 @@ body{
     background-color: black;
 }
 p{
-    padding-top: 1%;
+    padding-top:1%;
     color: white;
     font-weight: bold;
 }
@@ -20,6 +20,17 @@ button{
     height: 20px;
     margin-bottom: 20px;
 }
+.popup{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:red;
+    margin-top: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: arial;
+}
+
 
 .container{
     display: flex;
