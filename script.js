@@ -11,12 +11,16 @@ let userCredentials= {};
 let gmail;
 //hide the popup of unvalid credenrials
 popup.style.opacity=0;
-
+//function to display and hide the popup
+const updatePopup= function (){
+    popup.style.opacity=1;
+    popup.innerHTML="Invalid Email or password";
+    setTimeout( function(){popup.style.opacity=0} , 3000);
+}
 //a function to store the credentials
 const credentialsFunction= function(email,password){
     if(email.length>=11 && gmail==="@gmail.com" && password.length>=8){
     userCredentials[email]=password;
-
 }
    
 }
@@ -27,8 +31,7 @@ if(email.length>=11 && gmail==="@gmail.com"){
     return email;
 }
 else{
-    popup.style.opacity=1;
-    popup.innerHTML="Invalid Email or password";
+  updatePopup(); 
 }
 }
 // a function to check a valid password
@@ -38,9 +41,8 @@ const ValidPassword = function(password){
     }
     else{
         popup.style.opacity=1;
-
         popup.innerHTML="Invalid Email or password";
-       
+        setTimeout( function(){popup.style.opacity=0} , 3000);
     }
     }
    
